@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+//    跳转到什么位置
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
