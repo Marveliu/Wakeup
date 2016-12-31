@@ -1,5 +1,6 @@
 package imis.demo.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import imis.demo.R;
+import imis.demo.config.Const;
+import imis.demo.ui.about.AboutActivity;
+import imis.demo.util.DialogUtil;
+import imis.demo.util.PreferencesUtils;
+import imis.demo.util.ShareUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,9 +28,12 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //设置工具栏
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //悬浮按钮
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +43,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        //侧滑
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -44,6 +54,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    //侧滑
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -54,6 +65,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //添加菜单
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -63,37 +75,48 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+//                if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+//                    mDrawer.closeDrawers();
+//                } else {
+//                    mDrawer.openDrawer(GravityCompat.START);
+//                }
+                break;
+            case R.id.action_share:
+                ShareUtils.share(MainActivity.this, getString(R.string.share_app));
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
+    //主菜单页面跳转
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-//    跳转到什么位置
-        } else if (id == R.id.nav_slideshow) {
+        if (id == R.id.nav_alarmclock) {
+
+        } else if (id == R.id.nav_note) {
+//      跳转到什么位置
+        } else if (id == R.id.nav_wheather) {
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_about) {
+            Intent insertIntent = new Intent(MainActivity.this,AboutActivity.class);
+            startActivity(insertIntent);
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_quit) {
+            DialogUtil.showChooseDialog(this, "", "您确定退出吗？", null, null, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PreferencesUtils.putSharePre(MainActivity.this, Const.LOGIN_PWD,"");
+                    getParent().finish();
+                }
+            });
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -13,9 +13,10 @@ import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-
 import imis.demo.R;
+import imis.demo.config.Const;
 import imis.demo.ui.MainActivity;
+import imis.demo.util.PreferencesUtils;
 import imis.demo.util.SysUtils;
 
 public class LoginActivity extends AppCompatActivity {
@@ -27,6 +28,12 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.input_password) EditText _passwordText;
     @Bind(R.id.btn_login) Button _loginButton;
     @Bind(R.id.link_signup) TextView _signupLink;
+
+
+
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
                 finish();
-                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                overridePendingTransition(R.anim.push_in_left, R.anim.push_out_left);
             }
         });
     }
@@ -69,14 +76,21 @@ public class LoginActivity extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
+        progressDialog.setMessage("正在登陆...");
         progressDialog.show();
 
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
+
+        //保存用户名和密码
+        PreferencesUtils.putSharePre(LoginActivity.this, Const.LOGIN_PHONE, email);
+        PreferencesUtils.putSharePre(LoginActivity.this, Const.LOGIN_PWD, password);
+
         SysUtils.startActivity(LoginActivity.this, MainActivity.class);//登录到主页面
+
+
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

@@ -59,6 +59,12 @@
             android:name=".ui.login.SignupActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.about.AboutActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
 
     </application>
 

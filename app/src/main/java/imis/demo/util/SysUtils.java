@@ -218,7 +218,7 @@ public class SysUtils {
     public static <T> void startActivity(Activity activity, Class<T> cla) {
         Intent intent = new Intent(activity, cla);
         activity.startActivity(intent);
-        activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        activity.overridePendingTransition(R.anim.push_in_left, R.anim.push_out_left);
     }
 
     /**

@@ -6,4 +6,69 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--菜单-->
+    <string name="nav_setting">设置</string>
+    <string name="nav_about">关于</string>
+    <string name="nav_share">分享</string>
+    <string name="nav_location">地理位置</string>
+    <string name="nav_quit">退出</string>
+
+
+    <!--版本检查-->
+    <string name="this_is_new_version">当前版本为最新版本</string>
+
+    <!--设置-->
+    <string name="title_about">关于</string>
+
+    <!--天气-->
+    <string-array name="pref_sync_update">
+        <item>2 小时</item>
+        <item>4 小时</item>
+        <item>6 小时</item>
+        <item>8 小时</item>
+    </string-array>
+
+    <string-array name="pref_cache_time">
+        <item>2 小时</item>
+        <item>4 小时</item>
+        <item>6 小时</item>
+        <item>8 小时</item>
+    </string-array>
+
+    <string-array name="pref_sync_update_values">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+    </string-array>
+
+
+
+    <!--app-->
+
+    <string name="has_new_version">有最近版本，赶紧下载更新吧！</string>
+    <string name="contact_me">如果你有好的意见或建议，可以联系我。\n新浪微博：@koterwong。\n邮箱：331244921@qq.com。\n我将十分注重你的建议，在此感谢！</string>
+    <string name="clear_cache">确定要清除缓存吗？\n如果不清理会在你设定的时间内清除，并不会占用手机内存</string>
+    <string name="share_app">来看一下我们的大作业吧</string>
+    <string name="app_name_with_introduce">起来嗨-你的起床专家</string>
+    <string name="introduce">
+        起来嗨，只为一份大作业
+        \n在设计风格上遵循了Material Design。
+        \n后续可能慢慢更新玩玩吧~
+        </string>
+
+    <!--依赖项-->
+        <string name="dependencies">
+        swipebacklayout
+        \nokhttputils
+        \nbutterknife
+        \nhellocharts-android
+        \nrxjava
+        \nrxandroid
+        \nrxpermissions
+        \nAsimpleCache
+        \nmaterialdialog
+        \nrecyclerview-animators
+    </string>
 </resources>
