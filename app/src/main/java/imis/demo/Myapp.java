@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.baidu.mapapi.SDKInitializer;
+
 import imis.demo.util.ACache;
 import imis.demo.util.LogUtil;
 
@@ -28,11 +30,12 @@ public class MyApp extends Application {
         mainId = android.os.Process.myTid();
         mHandler = new Handler();
         mACache = ACache.get(this, CACHE_NAME);
-        //release版本不打印log
-        LogUtil.isDebug = true;
-        //新版本检查更新。
 
-//        FIR bughd_android_sdk貌似是查bug的东西
+        SDKInitializer.initialize(this);	             //初始化地图相关
+
+        LogUtil.isShowLog=true;//是否打印log
+
+//      FIR bughd_android_sdk貌似是查bug的东西
         FIR.init(this);
     }
 

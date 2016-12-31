@@ -16,6 +16,7 @@ import android.view.View;
 
 import imis.demo.R;
 import imis.demo.config.Const;
+import imis.demo.service.LocService;
 import imis.demo.ui.about.AboutActivity;
 import imis.demo.util.DialogUtil;
 import imis.demo.util.PreferencesUtils;
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //启动后台定位服务
+        startService(new Intent(this,LocService.class));//启动后台服务
     }
 
     //侧滑
