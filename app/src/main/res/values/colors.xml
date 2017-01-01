@@ -34,4 +34,11 @@
     <color name="text_press2">#CCCCCC</color>
     <color name="black_p50">#7f000000</color>
     <color name="province_line_border">#999999</color>
+
+    <!--闹钟-->
+    <color name="black_33">#333333</color>
+    <color name="title_transparent_black">#22000000</color>
+    <color name="light_black">#141414</color>
+    <color name="line_and_outline_grey">#d9d9d9</color>
+    <color name="half_transparent_black">#BB000000</color>
 </resources>

@@ -36,5 +36,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     compile files('libs/imageloader.jar')
     compile files('libs/afinal_0.5.1_bin.jar')
+    compile 'com.bigkoo:pickerview:2.1.1'
 }
 

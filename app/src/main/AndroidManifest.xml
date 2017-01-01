@@ -64,6 +64,12 @@
             android:name=".ui.login.SignupActivity"
             android:screenOrientation="portrait" />
 
+        <!--功能-->
+        <activity
+            android:name=".ui.alarmclock.AlarmClock"
+            android:screenOrientation="portrait" />
+
+
         <activity
             android:name=".ui.about.AboutActivity"
             android:label="@string/title_activity_main"

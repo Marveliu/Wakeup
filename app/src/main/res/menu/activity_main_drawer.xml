@@ -3,15 +3,15 @@
 
     <group android:checkableBehavior="single" >
         <item
-            android:id="@+id/nav_alarmclock"
+            android:id="@+id/rb_tab1"
             android:icon="@drawable/ic_menu_camera"
             android:title="闹钟" />
         <item
-            android:id="@+id/nav_note"
+            android:id="@+id/rb_tab2"
             android:icon="@drawable/ic_menu_gallery"
             android:title="日记" />
         <item
-            android:id="@+id/nav_wheather"
+            android:id="@+id/rb_tab3"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="天气" />
     </group>
