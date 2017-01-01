@@ -14,4 +14,9 @@
     <dimen name="item_ver">10dp</dimen>
     <dimen name="item_hor">10dp</dimen>
     <dimen name="content_item_margen">8dp</dimen>
+
+    <!--百度sdk-->
+    <dimen name="main_title_size">18sp</dimen>
+    <dimen name="second_title_size">16sp</dimen>
+    <dimen name="desc_title_size">12sp</dimen>
 </resources>

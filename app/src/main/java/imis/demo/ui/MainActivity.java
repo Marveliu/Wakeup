@@ -1,5 +1,6 @@
 package imis.demo.ui;
 
+import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,12 +17,12 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TabHost;
 
-import android.app.TabActivity;
-
 import imis.demo.R;
 import imis.demo.config.Const;
+import imis.demo.service.LocationService;
 import imis.demo.ui.about.AboutActivity;
 import imis.demo.ui.alarmclock.AlarmClock;
+import imis.demo.ui.location.LocMainActivity;
 import imis.demo.util.DialogUtil;
 import imis.demo.util.PreferencesUtils;
 import imis.demo.util.ShareUtils;
@@ -40,7 +41,7 @@ public class MainActivity extends TabActivity
 
         //设置工具栏
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//单独在自己的页面中设置按钮吧        setSupportActionBar(toolbar);
+        //单独在自己的页面中设置按钮吧        setSupportActionBar(toolbar);
 
         //悬浮按钮
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -62,7 +63,7 @@ public class MainActivity extends TabActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //启动后台定位服务
-        //startService(new Intent(this,LocService.class));//启动后台服务
+        startService(new Intent(this,LocationService.class));//启动后台服务
 
 
       // initView();
@@ -118,7 +119,7 @@ public class MainActivity extends TabActivity
             mTabHost.setCurrentTabByTag("tab1");
         }
         else if (id == R.id.rb_tab2) {
-
+            mTabHost.setCurrentTabByTag("tab2");
         }
         else  if (id == R.id.rb_tab3) {
 
@@ -168,8 +169,8 @@ public class MainActivity extends TabActivity
         intent = new Intent().setClass(this, AlarmClock.class);
         mainTabHost.addTab(buildTabSpec("tab1", null, intent));
 
-//        intent = new Intent().setClass(this, Tab2Activity.class);
-//        mainTabHost.addTab(buildTabSpec("tab2", null, intent));
+        intent = new Intent().setClass(this, LocMainActivity.class);
+        mainTabHost.addTab(buildTabSpec("tab2", null, intent));
 //        intent = new Intent().setClass(this, Tab3Activity.class);
 //        mainTabHost.addTab(buildTabSpec("tab3", null, intent));
 
