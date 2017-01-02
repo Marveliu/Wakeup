@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.1'
     defaultConfig {
         applicationId "imis.demo"
-        minSdkVersion 21
+        minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -22,7 +22,15 @@ android {
     }
     productFlavors {
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
+
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -39,4 +47,6 @@ dependencies {
     compile 'com.bigkoo:pickerview:2.1.1'
     compile files('libs/IndoorscapeAlbumPlugin.jar')
 }
+
+
 

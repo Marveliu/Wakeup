@@ -3,9 +3,7 @@ package imis.demo.ui;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,6 +21,7 @@ import imis.demo.service.LocationService;
 import imis.demo.ui.about.AboutActivity;
 import imis.demo.ui.alarmclock.AlarmClock;
 import imis.demo.ui.location.LocMainActivity;
+import imis.demo.ui.weather.WeatherActivity;
 import imis.demo.util.DialogUtil;
 import imis.demo.util.PreferencesUtils;
 import imis.demo.util.ShareUtils;
@@ -41,17 +40,7 @@ public class MainActivity extends TabActivity
 
         //设置工具栏
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //单独在自己的页面中设置按钮吧        setSupportActionBar(toolbar);
-
-        //悬浮按钮
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        //set(toolbar);
 
         //侧滑
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -65,11 +54,8 @@ public class MainActivity extends TabActivity
         //启动后台定位服务
         startService(new Intent(this,LocationService.class));//启动后台服务
 
-
-      // initView();
         setupIntent();
     }
-
 
 
     //侧滑
@@ -95,13 +81,6 @@ public class MainActivity extends TabActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-//                if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-//                    mDrawer.closeDrawers();
-//                } else {
-//                    mDrawer.openDrawer(GravityCompat.START);
-//                }
-                break;
             case R.id.action_share:
                 ShareUtils.share(MainActivity.this, getString(R.string.share_app));
                 break;
@@ -122,7 +101,7 @@ public class MainActivity extends TabActivity
             mTabHost.setCurrentTabByTag("tab2");
         }
         else  if (id == R.id.rb_tab3) {
-
+            mTabHost.setCurrentTabByTag("tab3");
         }
         else if (id == R.id.nav_manage) {
 
@@ -171,8 +150,9 @@ public class MainActivity extends TabActivity
 
         intent = new Intent().setClass(this, LocMainActivity.class);
         mainTabHost.addTab(buildTabSpec("tab2", null, intent));
-//        intent = new Intent().setClass(this, Tab3Activity.class);
-//        mainTabHost.addTab(buildTabSpec("tab3", null, intent));
+
+        intent = new Intent().setClass(this, WeatherActivity.class);
+        mainTabHost.addTab(buildTabSpec("tab3", null, intent));
 
     }
 

@@ -9,7 +9,6 @@ import com.baidu.mapapi.SDKInitializer;
 
 import imis.demo.service.LocationService;
 
-
 /**
  * 主Application，所有百度定位SDK的接口说明请参考线上文档：http://developer.baidu.com/map/loc_refer/index.html
  *
