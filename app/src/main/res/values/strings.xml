@@ -16,6 +16,7 @@
 
     <!--设置-->
     <string name="title_about">关于</string>
+    <string name="loc_about">LBS</string>
 
     <!--天气-->
     <string-array name="pref_sync_update">
@@ -40,32 +41,37 @@
     </string-array>
 
 
-
     <!--app-->
-
     <string name="has_new_version">有最近版本，赶紧下载更新吧！</string>
-    <string name="contact_me">如果你有好的意见或建议，可以联系我。\n新浪微博：@koterwong。\n邮箱：331244921@qq.com。\n我将十分注重你的建议，在此感谢！</string>
+    <string name="contact_me">如果你有好的意见或建议，可以联系我。\n邮箱：897920245@qq.com！\n</string>
     <string name="clear_cache">确定要清除缓存吗？\n如果不清理会在你设定的时间内清除，并不会占用手机内存</string>
-    <string name="share_app">来看一下我们的大作业吧</string>
-    <string name="app_name_with_introduce">起来嗨-你的起床专家</string>
+    <string name="share_app">起来嗨,来看一下我们的大作业吧!https://github.com/munan1996/Wakeup</string>
+    <string name="app_name_with_introduce">起来嗨</string>
     <string name="introduce">
-        起来嗨，只为一份大作业
+        起来嗨，不只为一份大作业
         \n在设计风格上遵循了Material Design。
         \n后续可能慢慢更新玩玩吧~
         </string>
 
     <!--依赖项-->
-        <string name="dependencies">
-        swipebacklayout
-        \nokhttputils
-        \nbutterknife
-        \nhellocharts-android
-        \nrxjava
-        \nrxandroid
-        \nrxpermissions
-        \nAsimpleCache
-        \nmaterialdialog
-        \nrecyclerview-animators
+        <string name="dependencies">"
+me.drakeet.materialdialog:library:1.3.1'
+com.android.support:appcompat-v7:23.4.0'
+com.android.support:support-v4:23.4.0'
+com.android.support:cardview-v7:23.4.0'
+com.android.support:design:23.4.0'
+com.jakewharton:butterknife:7.0.1'
+'libs/BaiduLBS_Android.jar'
+libs/Bughd_android_sdk_v1.3.7.jar'
+com.google.code.gson:gson:2.6.2'
+libs/imageloader.jar'
+libs/afinal_0.5.1_bin.jar'
+com.bigkoo:pickerview:2.1.1'
+libs/IndoorscapeAlbumPlugin.jar'
+com.shamanland:fab:0.0.5'
+org.roboguice:roboguice:3.0'
+org.roboguice:roboblender:3.0'
+libs/android-support-v7-cardview.jar'"
     </string>
 
     <!--闹钟-->
@@ -120,4 +126,11 @@
     <!--天气-->
 
     <string name="weatherurl">http://weather.51wnl.com/weatherinfo/GetMoreWeather</string>
+    <string name="title_activity_t">T</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="action_example">Example action</string>
 </resources>

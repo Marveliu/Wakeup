@@ -21,6 +21,7 @@ import imis.demo.service.LocationService;
 import imis.demo.ui.about.AboutActivity;
 import imis.demo.ui.alarmclock.AlarmClock;
 import imis.demo.ui.location.LocMainActivity;
+import imis.demo.ui.note.NoteMainActivity;
 import imis.demo.ui.weather.WeatherActivity;
 import imis.demo.util.DialogUtil;
 import imis.demo.util.PreferencesUtils;
@@ -77,16 +78,16 @@ public class MainActivity extends TabActivity
         return true;
     }
 
-    //分享设置
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_share:
-                ShareUtils.share(MainActivity.this, getString(R.string.share_app));
-                break;
-        }
-        return true;
-    }
+//    //分享设置
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_share:
+//                ShareUtils.share(MainActivity.this, getString(R.string.share_app));
+//                break;
+//        }
+//        return true;
+//    }
 
     //设置页面跳转
     @SuppressWarnings("StatementWithEmptyBody")
@@ -103,8 +104,12 @@ public class MainActivity extends TabActivity
         else  if (id == R.id.rb_tab3) {
             mTabHost.setCurrentTabByTag("tab3");
         }
-        else if (id == R.id.nav_manage) {
-
+        else if (id == R.id.nav_location) {
+            Intent insertIntent = new Intent(MainActivity.this, LocMainActivity.class);
+            startActivity(insertIntent);
+        }
+        else if (id == R.id.nav_share) {
+            ShareUtils.share(MainActivity.this, getString(R.string.share_app));
         } else if (id == R.id.nav_about) {
             Intent insertIntent = new Intent(MainActivity.this,AboutActivity.class);
             startActivity(insertIntent);
@@ -148,7 +153,7 @@ public class MainActivity extends TabActivity
         intent = new Intent().setClass(this, AlarmClock.class);
         mainTabHost.addTab(buildTabSpec("tab1", null, intent));
 
-        intent = new Intent().setClass(this, LocMainActivity.class);
+        intent = new Intent().setClass(this, NoteMainActivity.class);
         mainTabHost.addTab(buildTabSpec("tab2", null, intent));
 
         intent = new Intent().setClass(this, WeatherActivity.class);

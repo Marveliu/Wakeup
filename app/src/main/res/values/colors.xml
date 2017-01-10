@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#E43F3F</color>
-    <color name="primary_dark">#E12929</color>
-    <color name="primary_darker">#CC1D1D</color>
+    <color name="primary">#26a69a</color>
+    <color name="primary_dark">#4db6ac</color>
+    <color name="primary_darker">#80cbc4</color>
     <color name="accent">#FFFFFF</color>
 
     <color name="black">#000000</color>
@@ -41,4 +41,19 @@
     <color name="light_black">#141414</color>
     <color name="line_and_outline_grey">#d9d9d9</color>
     <color name="half_transparent_black">#BB000000</color>
+
+    <!--天气-->
+    <!--overview_text_color-->
+    <color name="color_text_title">#727272</color>
+    <color name="color_text_value">#b6b6b6</color>
+
+    <color name="weather_text_color">#26a69a</color>
+    <color name="weather_text_color_second">#4db6ac</color>
+    <color name="weather_text_color_third">#80cbc4</color>
+
+    <color name="element_color">#88bdcc</color>
+    <color name="element_dark">#77afbf</color>
+
+    <color name="teal">#009688</color>
+    <color name="grey_300">#e8e8e8</color>
 </resources>

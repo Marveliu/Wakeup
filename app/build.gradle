@@ -31,12 +31,13 @@ android {
 }
 
 
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'me.drakeet.materialdialog:library:1.3.1'
     compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:cardview-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile files('libs/BaiduLBS_Android.jar')
@@ -46,6 +47,10 @@ dependencies {
     compile files('libs/afinal_0.5.1_bin.jar')
     compile 'com.bigkoo:pickerview:2.1.1'
     compile files('libs/IndoorscapeAlbumPlugin.jar')
+    compile 'com.shamanland:fab:0.0.5'
+    compile 'org.roboguice:roboguice:3.0'
+    provided 'org.roboguice:roboblender:3.0'
+    compile files('libs/android-support-v7-cardview.jar')
 }
 
 

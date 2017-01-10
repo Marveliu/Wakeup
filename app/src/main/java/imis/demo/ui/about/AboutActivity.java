@@ -49,7 +49,7 @@ public class AboutActivity extends AppCompatActivity {
                         .setPositiveButton("好的", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.github.com/koterwong"));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/munan1996/Wakeup"));
                                 startActivity(intent);
                             }
                         });

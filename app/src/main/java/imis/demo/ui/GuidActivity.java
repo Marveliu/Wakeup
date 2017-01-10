@@ -61,15 +61,15 @@ public class GuidActivity extends Activity {
             switch (i) {
                 //// TODO: 2016/12/30  这里需要放三张新的安装图片 
                 case 0:
-                    tv_guid.setText("说明1");
+                    tv_guid.setText("");
                     rl_guid.setBackgroundResource(R.drawable.welcome_01);
                     break;
                 case 1:
-                    tv_guid.setText("说明2");
+                    tv_guid.setText("");
                     rl_guid.setBackgroundResource(R.drawable.welcome_02);
                     break;
                 case 2:
-                    tv_guid.setText("说明3");
+                    tv_guid.setText("");
                     rl_guid.setBackgroundResource(R.drawable.welcome_03);
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override

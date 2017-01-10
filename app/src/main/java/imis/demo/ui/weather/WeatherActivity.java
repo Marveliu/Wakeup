@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -99,12 +101,13 @@ public class WeatherActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "网络异常，请检查网络是否连接",
 					Toast.LENGTH_LONG).show();
 		}
-	}
-
-	// 获取当前位置天气
-	public void showWeather(View v) {
-
-		GetFirstWeather();
+		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				GetFirstWeather();
+			}
+		});
 	}
 
 	public void GetFirstWeather(){
@@ -180,7 +183,6 @@ public class WeatherActivity extends Activity {
 	class GetWeather extends Thread {
 		private URL url;
 		private String IsNow;
-
 		public GetWeather(URL url, String IsNow) {
 			this.url = url;
 			this.IsNow = IsNow;
@@ -209,7 +211,6 @@ public class WeatherActivity extends Activity {
 				handler.sendMessage(msg1);
 			}
 			Looper.loop();
-
 		}
 
 	}
@@ -226,7 +227,6 @@ public class WeatherActivity extends Activity {
 			weather.setWeather(contentObject.getString("weather1"));
 			weather.setIndex(contentObject.getString("index"));
 			weather.setIndex_d(contentObject.getString("index_d"));
-
 			jsonresult = weather.getCity() + ":  " + weather.getToptemp()
 					+ "\n天气：" + weather.getWeather() + "   "
 					+"\n穿衣指数：" + weather.getIndex() + "\n" + weather.getIndex_d();
@@ -266,5 +266,4 @@ public class WeatherActivity extends Activity {
 		mLocationClient.stop();
 		super.onDestroy();
 	}
-
 }

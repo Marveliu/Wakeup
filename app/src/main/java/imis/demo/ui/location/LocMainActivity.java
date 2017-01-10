@@ -2,21 +2,25 @@ package imis.demo.ui.location;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import imis.demo.R;
+import imis.demo.common.ActivityStatueBarCompat;
+import imis.demo.util.AppUtils;
 
 /***
  * 本类代码同定位业务本身无关，负责现实列表
@@ -24,20 +28,35 @@ import imis.demo.R;
  * @author baidu
  *
  */
-public class LocMainActivity extends Activity {
+public class LocMainActivity extends AppCompatActivity {
 	private final int SDK_PERMISSION_REQUEST = 127;
 	private ListView FunctionList;
 	private String permissionInfo;
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.function_list);
 		FunctionList = (ListView) findViewById(R.id.functionList);
-		FunctionList
-				.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, getData()));
-
-		// after andrioid m,must request Permiision on runtime
+		FunctionList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, getData()));
+		//获取许可
 		getPersimmions();
+
+		//初始化界面
+		//initView();
+	}
+
+	private void initView() {
+		setContentView(R.layout.function_list);
+		ActivityStatueBarCompat.compat(this);
+
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		toolbar.setTitle(R.string.loc_about);
+		setSupportActionBar(toolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		((TextView) findViewById(R.id.tv_version)).setText("Version：" + AppUtils.getVersionName(this));
+
 	}
 
 	@TargetApi(23)
@@ -149,7 +168,6 @@ public class LocMainActivity extends Activity {
 		data.add("位置消息提醒");
 		data.add("室内定位功能");
 		data.add("常见问题说明");
-
 		return data;
 	}
 }

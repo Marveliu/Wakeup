@@ -29,15 +29,10 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.btn_login) Button _loginButton;
     @Bind(R.id.link_signup) TextView _signupLink;
 
-
-
-
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         
@@ -61,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_in_left, R.anim.push_out_left);
             }
         });
+
     }
 
     public void login() {

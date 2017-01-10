@@ -37,8 +37,8 @@ public class LocationActivity extends Activity {
 		LocationResult = (TextView) findViewById(R.id.textView1);
 		LocationResult.setMovementMethod(ScrollingMovementMethod.getInstance());
 		startLocation = (Button) findViewById(R.id.addfence);
-
 	}
+
 
 	/**
 	 * 显示请求字符串
